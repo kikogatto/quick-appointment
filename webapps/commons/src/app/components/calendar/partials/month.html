@@ -1,0 +1,20 @@
+    <section class="calendar month small panel">
+      <header class="panel-heading">
+        <div class='title'>{{monthDisplay.dateText}}</div>
+        <div class='pull-right actions' >
+          <a href='' ng-click='changeMonth(-1)'><i class="fa fa-angle-left"></i></a>&nbsp;&nbsp;
+          <a href='' ng-click='changeMonth(1)'><i class="fa fa-angle-right"></i></a>&nbsp;&nbsp;
+        </div>
+      </header>
+      <div class='body'>
+        <ul>
+          <li class='weekHeader' ng-repeat="weekDay in weekDayLabels">{{weekDay.initials}}</li>
+        </ul>
+        <ul >
+          <li class='weekDay' ng-repeat="day in monthDisplay.days" ng-class='{notCurrent : !day.isCurrent, today: day.isToday, selected: day.toDateString() === selectedDay.toDateString() }' ng-click="selectDay(day)">
+              {{day.getDate()}}
+          </li>
+        </ul>
+      </div>
+      <footer ></footer>
+    </section>

@@ -1,0 +1,228 @@
+.calendar {
+    border : 1px solid #FFFFFF;
+    margin-bottom:2px;
+    box-shadow : none;
+    > header {
+        padding: 0px;
+        margin-bottom:5px;
+        min-height: 32px;
+        .fixedWidth {
+            width: 340px;
+            float: left;
+        }
+        .liquidWidth {
+            margin-left: 350px;
+        }
+        .title {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            small {
+                color: @gray-light;
+            }
+        }
+        h5 {
+            margin-top:0px;
+            margin-bottom:0px;
+        }
+
+        i {
+            font-size: 18px;
+            font-weight:bold;
+        }
+    }
+    .body {
+    }
+
+    &.month{
+            width: 180px;
+
+            > header {
+                margin-top:10px;
+            }
+            .body {
+                height: 180px;
+                margin-top:0px;
+                > ul > li {
+                    margin-right: 1px;
+                    margin-top: 1px;
+                    width: 12.8%;
+                    height: 18px;
+                    float: left;
+                }
+            }
+
+            li.weekHeader {
+                position: relative;
+                text-align: center;
+                font-size: 14px;
+                font-weight: bold;
+                color: @primaryColor;
+            }
+
+        li.weekDay {
+                position: relative;
+                background-color: #FDFDFD;
+                text-align: center;
+                font-size: 12px;
+                cursor: pointer;
+                color: lighten(@primaryColor, 20%);
+                font-weight: bold;
+                &.notCurrent {
+                    color: #BBBBBB;
+                    font-weight: normal;
+                }
+
+                &.today {
+                    border: 1px solid;
+                }
+
+                &.selected {
+                    font-weight: bold;
+                    color: @brand-success;
+                }
+
+
+                &:hover {
+                    color: @primaryColor;
+                }
+                .vacancy {
+                    margin: 2px;
+                    height: 3px;
+                    background-color: lighten(green, 20%);
+                }
+        }
+    }
+
+    &.daily {
+    header {
+        .title {
+            margin-left:30px;
+        }
+    }
+    .body {
+        overflow-y : auto;
+        min-height:450px;
+        //border-left: 1px solid @gray-light;
+        //border-top: 1px solid @gray-light;
+        > ul {
+            margin-right:15px;
+            border: 1px solid @gray-light;
+            > li {
+                border-bottom: 1px solid @gray-light;
+                &:last-child {
+                    border-bottom: 0px solid @gray-light;
+                }
+            }
+        }
+    }
+    .hour {
+        position:relative;
+        .time {
+            text-align: right;
+            color: @gray;
+            font-weigth: bold;
+            font-size: 14px;
+            float:left;
+            clear:left;
+            width:50px;
+        }
+        .details {
+            background-color: @gray-lighter;
+            height: 50px;
+            margin-left: 55px;
+            > div {
+                margin-left:305px;
+                .appointment {
+                    min-width:50px;
+                }
+            }
+            .appointment {
+                cursor: pointer;
+                padding:3px;
+                padding-top:1px;
+                margin:2px;
+                float:left;
+                max-width:300px;
+                height: 44px;
+                border-left-width: 10px;
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+                min-width:300px;
+                position:relative;
+                overflow: hidden;
+                &:hover {
+                    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                }
+                &.appointment-status-0 {
+//                    border-color: @primaryColor;
+                }
+                &.appointment-status-1 {
+                    border-color: @primaryColor;
+                }
+                &.appointment-status-2 {
+                    border-color: @brand-success;
+                }
+                &.appointment-status-3 {
+                    border-color: @secondaryColor;
+                }
+                &.appointment-status-4 {
+                    background-color: #CECECE;
+                }
+                &.appointment-status-5 {
+                    visibility: hidden;
+                }
+                &.appointment-status-6 {
+                    border-color: red;
+                }
+                &.appointment-status-7 {
+                    border-color: yellow;
+                }
+
+
+                .patient-info {
+                    padding-top:5px;
+                    div {
+                    display:inline-block;
+                    vertical-align: top;
+                    line-height:1;
+                    min-width:90px;
+                    font-size:11px;
+                    }
+                }
+                h5, span, strong {
+                    margin: 0px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .img-thumbnail {
+                    width: 40px;
+                }
+            }
+        }
+        &.addingNew {
+            .details{
+                background-color: #d9edf7;
+                border-color: #bce8f1;
+            }
+            .time{
+                color: @primaryColor;
+                font-size: 16px;
+            }
+        }
+        &.squeezingIn {
+            .details{
+                background-color: #fcf8e3;
+                border-color: #faebcc;
+            }
+            .time{
+                color: #8a6d3b;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+}

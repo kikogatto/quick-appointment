@@ -1,0 +1,35 @@
+<section class="calendar daily panel" >
+    <header class="panel-heading">
+      <div class='fixedWidth'>
+            <button class='btn btn-sm btn-default' ng-disabled='isToday' ng-click='today()'>Ir para hoje</button>&nbsp;&nbsp;
+            <div class="btn-group actions">
+              <button type="button" class="btn btn-default btn-sm" ng-click='changeDay(-1)'><i class="fa fa-angle-left"></i></button>
+              <button type="button" class="btn btn-default btn-sm" ng-click='changeDay(1)'><i class="fa fa-angle-right"></i></button>
+            </div>
+            <div class='title'>
+              <h5><small>{{currentDay.date.title()}} {{currentDay.date.getWeekdayLabel().label}}<br/></small>{{currentDay.date.asFullText()}}</h5>
+            </div>
+      </div>
+      <div class='liquidWidth'>
+            <careprovider-selector></careprovider-selector>
+      </div>
+    </header>
+      <div class='body'>
+        <ul ng-if="currentCareProvider && currentDay.resolved && currentDay.schedule.length > 0">
+          <li ng-repeat="hour in currentDay.schedule" ng-class="{'hour':true, 'addingNew': (!hour.appointments || hour.appointments.length == 0) && hour == currentDay.selectedHour, 'squeezingIn': hour.appointments.length > 0 && hour == currentDay.selectedHour}" ripple-on-click ng-click='clickHour(hour, $event)' >
+            <div class='time' data-toggle="modal" data-target="#novaconsulta" ng-click="newAppointment(hour.date)"><span class=''>{{hour.label}}</span></div>
+            <div class='details' >
+            </div>
+          </li>
+        </ul>
+        <div ng-if="currentCareProvider && currentDay.resolved && currentDay.schedule.length == 0">
+              <div class="alert alert-danger">
+                Não existem horários configurados para este dia
+              </div>
+        </div>
+        <quick-appointment />
+      </div>
+      <footer class="panel-footer" style="padding-top: 3px; padding-bottom: 2px;">
+        <div>Total de agendamentos no dia: {{currentDay.totalAppointments}}</div>
+      </footer>
+</section>
