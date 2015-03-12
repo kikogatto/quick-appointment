@@ -7,7 +7,11 @@
  *
  ************************************************************************************************/
 var yellowCake = angular.module('yellowCake', [
-    'ngRoute', 'ngCookies', 'ngAnimate', 'ngSanitize'
+    'ngRoute', 'ngCookies', 'ngAnimate', 'ngSanitize',
+    'compiledTemplates', 'controls-directives',
+    'sideMenu',
+    'calendar',
+    'auth'
 ]);
 
 
@@ -16,9 +20,11 @@ yellowCake.config(['$routeProvider', '$httpProvider', function($routeProvider, $
 
     $routeProvider
     .otherwise({redirectTo: '/404'});
+
 }]);
 
 yellowCake.run(['$rootScope', '$location', function($rootScope, $location) {
-
-
+	$rootScope.$on('Auth.LoggInSuccessful', function( e, args) {
+		$location.path('/calendar');
+	});
 }]);

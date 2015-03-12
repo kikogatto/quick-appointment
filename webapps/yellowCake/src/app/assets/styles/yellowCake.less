@@ -1,7 +1,9 @@
-//@import "../../../../lib/bootstrap-3.1.1/less/bootstrap.less";
+@import "../../../../../lib/bootstrap-3.3.1/less/bootstrap.less";
 @import "variables.less";
 @import "bootstrap-fixes.less";
-
+@import "../../../../../commons/src/app/components/auth/auth.less";
+@import "../../../../../commons/src/app/components/calendar/calendar.less";
+@import "../directives/sideMenu/side-menu.less";
 // Plugins
 
 .animated.ng-enter, .animated.ng-leave, .animated.ng-move {
@@ -29,13 +31,64 @@
 }
 
 
-
-
 //
 html {
     height:100%;
     body {
         height:100%;
-        background: url(/assets/images/yellowCake.jpeg);
+        //background-color: #3e2c42;
+        .mainViewWrapper {
+          background-color: #FFFFFF;
+          min-height: 100%;
+          margin-left:220px;
+        }
+        &.login, &.err404 {
+          background: url(/assets/images/yellowCake.jpeg);
+          background-position: 0% 20%;
+          padding-top: 200px;
+          .mainViewWrapper {
+            background-color: transparent;
+            margin:0px;
+          }
+          .sideMenu {
+            display: none;
+            visibility: hidden;
+          }
+        }
+    }
+}
+
+section.sideMenu {
+  border-right: 3px solid @secondaryColor;
+  background-color: @primaryColor;
+  .menu {
+    color: @secondaryColor;
+    li {
+      border-bottom: 1px solid rgba(253,192,74,.3);
+    }
+  }
+}
+
+@media only screen and (min-width: 1176px){
+    section.sideMenu {
+        &:after {
+            top: 40px;
+            border-color: transparent;
+            border-left-color: @primaryColor;
+            left: 197px;
+            border-width: 22px;
+            border-left-width: 15px;
+            position: absolute;
+            display: block;
+
+            position: absolute;
+            display: block;
+            width: 0;
+            height: 0;
+
+            border-style: solid;
+            transition: top .3s ease;
+            content:" ";
+        }
     }
 }

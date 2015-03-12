@@ -32,7 +32,7 @@ module.exports = function (grunt) {
         // Watches files for changes and runs tasks based on the changed files
         watch: {
             js: {
-                files: ['<%= config.app %>/*.js', '<%= config.app %>/assets/**/*.js', '<%= config.app %>/components/**/*.js'],
+                files: ['<%= config.app %>/*.js', '<%= config.app %>/assets/**/*.js', '<%= config.app %>/components/**/*.js', '<%= commons =>/**/*.js', '<%= commons =>/**/*.html'],
                 tasks: ['jshint'],
                 options: {
                     livereload: true
@@ -46,7 +46,7 @@ module.exports = function (grunt) {
                 tasks: ['less']
             },
             templates :{
-                files: ['<%= config.app %>/index.html', '<%= config.app %>/assets/directives/*.html', '<%= config.app %>/components/**/*.html'],
+                files: ['<%= config.app %>/index.html', '<%= config.app %>/assets/**/*.html', '<%= config.app %>/components/**/*.html'],
                 tasks: ['ngtemplates']
             },
             livereload: {
