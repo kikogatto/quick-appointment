@@ -1,9 +1,9 @@
 /* Directives Module */
 'use strict';
 /* global angular */
-var sideMenuModule = angular.module('sideMenu',['auth', 'compiledTemplates']);
+var navigation = angular.module('navigation',['auth', 'compiledTemplates']);
 
-sideMenuModule.service('sideMenuService', [ 'authServices', function (authServices) {
+navigation.service('navigationService', [ 'authServices', function (authServices) {
     var _menuItems = [];
     var services = {
         addItem : function(item) {
@@ -22,14 +22,14 @@ sideMenuModule.service('sideMenuService', [ 'authServices', function (authServic
     return services;
 }]);
 
-sideMenuModule.directive('sideMenu', ['$rootScope', 'sideMenuService', 'authServices', function ($rootScope, sideMenuService, authServices) {
+navigation.directive('navigation', ['$rootScope', 'authServices' ,'navigationService', function ($rootScope, authServices, navigationService) {
     return {
         restrict: 'EA',
-        templateUrl:  'assets/directives/sideMenu/side-menu.html',
+        templateUrl:  'assets/directives/navigation/navigation.html',
         replace: true,
         scope: {},
         link: function (scope, iElement, iAttrs) {
-            scope.items = sideMenuService.items();
+            scope.items = navigationService.items();
             scope.isVisible = function() {
                 return authServices.isAuthenticated() && $rootScope.bodyClass && !$rootScope.bodyClass.fullScreen;
             };

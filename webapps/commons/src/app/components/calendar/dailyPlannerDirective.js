@@ -2,10 +2,10 @@
 /* global angular */
 
 var commonsCalendar = angular.module('commonsCalendar');
-commonsCalendar.directive('calendarAsDay', [ 'calendarServices', function (calendarServices) {
+commonsCalendar.directive('dailyPlanner', [ 'calendarServices', function (calendarServices) {
     return {
         restrict: 'AE',
-        templateUrl: 'components/calendar/partials/day.html',
+        templateUrl: 'components/calendar/partials/dailyPlanner.html',
         replace: true,
         scope: {},
         link: function (scope, iElement, iAttrs) {

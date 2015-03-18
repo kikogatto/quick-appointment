@@ -39,24 +39,36 @@
   <script src="components/auth/auth.js"></script>
   <script src="components/auth/authServices.js"></script>
   <script src="components/auth/authAPI.mock.js"></script>
+
+  <script src="components/profile/profile.js"></script>
+  <script src="components/profile/profileMenu.js"></script>
+
+  <script src="assets/directives/sideMenu/side-menu.js"></script>
+  <script src="assets/directives/navigation/navigation.js"></script>
+  <script src="assets/directives/controls-directives.js"></script>
+
+
+  <script src="components/dash/dash.js"></script>
+
+  <script src="components/customers/customers.js"></script>
+
   <script src="components/calendar/calendar.js"></script>
   <script src="components/calendar/calendarServices.js"></script>
-  <script src="components/calendar/monthDirective.js"></script>
-  <script src="components/calendar/dayDirective.js"></script>
-  <script src="assets/directives/controls-directives.js"></script>
-  <script src="assets/directives/sideMenu/side-menu.js"></script>
+  <script src="components/calendar/monthlyCalendarDirective.js"></script>
+  <script src="components/calendar/dailyPlannerDirective.js"></script>
+
   <script src="templates.js"></script>
   <script src="zcommons-templates.js"></script>
   <!-- endbuild -->
 
   <script src="config.js"></script>
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
 </head>
 <body ng-class='bodyClass'>
   <!--[if lt IE 7]>
     <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
   <![endif]-->
-  <div side-menu></div>
+  <div navigation></div>
   <div ng-view class='mainViewWrapper'></div>
 </body>
 </html>

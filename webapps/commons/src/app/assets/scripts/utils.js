@@ -73,7 +73,7 @@ Date.prototype.daysDiff = function(dateToCompare) {
 
 
     var timeDiff = (firstDate.getTime() - secondDate.getTime());
-    var diffDays = Math.ceil(timeDiff / Date.DAY);
+    var diffDays = Math.floor(timeDiff / Date.DAY);
     return diffDays;
 };
 
@@ -87,7 +87,7 @@ Date.prototype.minutesDiff = function(dateToCompare) {
     var diffMs = (firstDate.getTime() - secondDate.getTime()); // milliseconds between date and dateToCompare
 
     //var diffMins = Math.ceil(((diffMs % Date.DAY) % Date.HOUR) / Date.MINUTE); // minutes
-    var diffMins = Math.ceil( diffMs / Date.MINUTE ); // minutes
+    var diffMins = Math.floor( diffMs / Date.MINUTE ); // minutes
     return diffMins;
 };
 

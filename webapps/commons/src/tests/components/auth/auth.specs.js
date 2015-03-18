@@ -49,9 +49,14 @@ describe('The Auth module', function(){
             expect( authServices.hasAccessToken() ).toBeFalsy();
         }));
 
-        it(' that sets a bodyClass property on the rootscope to {login:true}', function() {
+        it(' that sets a bodyClass property on the rootscope with {login:true}', function() {
             inject( function ( $rootScope) {
                 expect($rootScope.bodyClass.login).toBe(true);
+            });
+        });
+        it(' that sets a bodyClass property on the rootscope with {fullScreen:true}', function() {
+            inject( function ( $rootScope) {
+                expect($rootScope.bodyClass.fullScreen).toBe(true);
             });
         });
     });

@@ -4,6 +4,7 @@
 @import "../../../../../commons/src/app/components/auth/auth.less";
 @import "../../../../../commons/src/app/components/calendar/calendar.less";
 @import "../directives/sideMenu/side-menu.less";
+@import "../directives/navigation/navigation.less";
 // Plugins
 
 .animated.ng-enter, .animated.ng-leave, .animated.ng-move {
@@ -40,7 +41,6 @@ html {
         .mainViewWrapper {
           background-color: #FFFFFF;
           min-height: 100%;
-          margin-left:220px;
         }
         &.login, &.err404 {
           background: url(/assets/images/yellowCake.jpeg);
@@ -58,7 +58,7 @@ html {
     }
 }
 
-section.sideMenu {
+section.sideMenu, section.main {
   border-right: 3px solid @secondaryColor;
   background-color: @primaryColor;
   .menu {
@@ -70,7 +70,7 @@ section.sideMenu {
 }
 
 @media only screen and (min-width: 1176px){
-    section.sideMenu {
+    section.sideMenu, section.main {
         &:after {
             top: 40px;
             border-color: transparent;

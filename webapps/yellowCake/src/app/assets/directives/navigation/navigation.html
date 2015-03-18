@@ -1,0 +1,18 @@
+<section class='navigation' ng-show='isVisible()'>
+    <section class='main' >
+        <section class='brand'></section>
+        <ul class='menu'>
+            <li ng-repeat='item in items'><a href="/#/{{item.route}}"><i class="fa {{item.icon}}" data-label="{{item.label}}"></i></a></li>
+        </ul>
+    </section>
+    <section class='aux'>
+        <div profile-menu></div>
+        <div class='colapsed-navigation'>
+            <i class="fa fa-bars"></i>
+        </div>
+        <div class='form-group search'>
+            <input type="text" class='form-control' placeholder='Busca'><i class="fa fa-search"></i>
+        </div>
+        <div>a</div>
+    </section>
+</section>

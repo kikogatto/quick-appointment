@@ -1,33 +1,30 @@
 'use strict';
 /* global angular */
 
-var commonsCalendar = angular.module('commonsCalendar', []);
+var commonsCalendar = angular.module('commonsCalendar', ['compiledTemplates']);
 
 commonsCalendar.service('calendarServices',[ function() {
-    var _selectedDay = {
-        date: new Date()
+    var _data = {
+        now: new Date(),
+        selected: new Date(),
+        firstDayOfTheWeek : 1
     };
-    var _firstDayOfTheWeek = 1;
 	return {
 
-        fixDayOfWeekIndex: function (broken) {
-            return (broken + (7-_firstDayOfTheWeek) ) % 7;
+        getSelectedDate: function () {
+            return _data.selected;
         },
 
-        getWeekdayLabels: function () {
-            var labels = [];
-            for( var i = 0; i < 7; i++ ) {
-                labels.push( Date.weekdayLabels[ ( i + _firstDayOfTheWeek) %7 ] );
-            }
-            return labels;
+        setSelectedDate: function (date) {
+            _data.selected = date;
         },
 
-        getSelectedDay: function () {
-            return _selectedDay.date;
+        getFirstDayOfTheWeek: function () {
+            return _data.firstDayOfTheWeek;
         },
 
-        setSelectedDay: function (date) {
-            _selectedDay.date = date;
+        setFirstDayOfTheWeek: function (firstDayOfTheWeek) {
+            _data.firstDayOfTheWeek = firstDayOfTheWeek;
         },
     };
 }]);

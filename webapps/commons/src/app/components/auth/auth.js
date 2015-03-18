@@ -12,7 +12,7 @@ auth.config( ['$routeProvider', '$httpProvider', function ( $routeProvider, $htt
 //  * Controllers
 //  ***********************************************************************************************
 auth.controller('LoginController', ['$rootScope',  function ($rootScope) {
-    $rootScope.bodyClass = {'login' : true};
+    $rootScope.bodyClass = {'login' : true, fullScreen : true};
 }]);
 
 /************************************************************************************************

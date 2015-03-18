@@ -42,11 +42,11 @@ module.exports = function (grunt) {
                 files: ['Gruntfile.js']
             },
             less: {
-                files: ['<%= config.app %>/assets/styles/{,*/}*.less', '<%= config.app %>/components/{,*/}*.less'],
+                files: ['<%= config.app %>/assets/styles/{,*/}*.less', '<%= config.app %>/assets/directives/{,*/}*.less', '<%= config.app %>/components/{,*/}*.less'],
                 tasks: ['less']
             },
             templates :{
-                files: ['<%= config.app %>/index.html', '<%= config.app %>/assets/**/*.html', '<%= config.app %>/components/**/*.html'],
+                files: ['<%= config.app %>/*.html', '<%= config.app %>/assets/**/*.html', '<%= config.app %>/components/**/*.html'],
                 tasks: ['ngtemplates']
             },
             livereload: {
